@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/style2.css">
+    <title>Bintang Profile</title>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <p>Bintang's Profile</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#poet">Poet</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about">
+        <div class="aboutpic">
+            <img src="A1.jpg" id="changeImage1" onclick="changingImage1()"/>
+        </div>
+
+        <script>
+            function changingImage1() {
+                var image = document.getElementById('changeImage1');
+                if (image.src.match("M1.jpg")) {
+                    image.src = "M1.jpg";
+                } else {
+                    image.src = "M1.jpg";
+                }
+            }
+        </script>
+
+        <div class="abouttext">
+            <h3>About Me</h3>
+            <p>
+                My name is Muhammad Bintang Prabu Adinta.  
+                I’m interested in coding, especially programming and cybersecurity.
+                <br><br>
+                I enjoy understanding how systems work, how they break, and how they can be secured.  
+                Most of my time goes into building, testing, and improving things.
+                <br><br>
+                I’m also active in Model United Nations.  
+                I’ve represented Australia and Syria, and currently I serve as a delegate of Romania.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- POET -->
+<section id="poet">
+    <h2>Poet</h2>
+
+    <p style="line-height: 1.8; max-width: 800px;">
+        <b>Nyanyian Sunyi Alamku</b><br><br>
+
+        Di bawah langit yang diam namun luas,<br>
+        aku menemukan suara yang tak bersuara—<br>
+        angin yang lembut mengusap waktu,<br>
+        membawa bisikan sunyi yang mengajakku hidup hari ini, bukan nanti.<br><br>
+
+        Pepohonan berdiri tanpa keluh,<br>
+        mengajarkan kuat tanpa perlu terlihat gagah;<br>
+        daunnya jatuh bukan karena kalah,<br>
+        melainkan karena tahu kapan harus melepaskan.<br><br>
+
+        Dari sana aku mengerti,<br>
+        hidup bukan tentang bertahan selamanya,<br>
+        tetapi tentang berani berubah.<br><br>
+
+        Sungai mengalir tanpa ragu,<br>
+        melewati batu, luka, dan jarak panjang,<br>
+        namun tetap jernih dalam tujuannya.<br><br>
+
+        Seperti itu pula aku ingin berjalan—<br>
+        tidak selalu mudah,<br>
+        namun tetap setia pada arah yang kupilih.<br><br>
+
+        Dan ketika senja turun perlahan,<br>
+        alamku tidak pernah benar-benar pergi;<br>
+        ia tinggal di dalam dada,<br>
+        menjadi cahaya kecil yang terus mengingatkan:<br><br>
+
+        hidup ini singkat,<br>
+        maka jalani dengan penuh arti.
+    </p>
+</section>
+
+<!-- FAVORITES -->
+<section id="photos">
+    <h2>Favorites</h2>
+    <div class="slideshow">
+
+        <div class="Slide fade">
+            <div class="number">1 / 6</div>
+            <img class="photo" src="d1.jpg">
+            <div class="text">Dead Poets Society (1989)</div>
+        </div>
+
+        <div class="Slide fade">
+            <div class="number">2 / 6</div>
+            <img class="photo" src="p1.jpg">
+            <div class="text">Fight Club</div>
+        </div>
+
+        <div class="Slide fade">
+            <div class="number">3 / 6</div>
+            <img class="photo" src="q1.jpg">
+            <div class="text">Forrest Gump</div>
+        </div>
+
+        <div class="Slide fade">
+            <div class="number">4 / 6</div>
+            <img class="photo" src="w1.jpg">
+            <div class="text">Mr. Robot</div>
+        </div>
+
+        <div class="Slide fade">
+            <div class="number">5 / 6</div>
+            <img class="photo" src="r1.jpg">
+            <div class="text">Breaking Bad</div>
+        </div>
+
+        <div class="Slide fade">
+            <div class="number">6 / 6</div>
+            <img class="photo" src="s1.jpg">
+            <div class="text">Better Call Saul</div>
+        </div>
+
+        <a class="prev" onclick="addSlides(-1)">❮ Prev</a>
+        <a class="next" onclick="addSlides(1)">Next ❯</a>
+
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="thisSlide(1)"></span>
+        <span class="dot" onclick="thisSlide(2)"></span>
+        <span class="dot" onclick="thisSlide(3)"></span>
+        <span class="dot" onclick="thisSlide(4)"></span>
+        <span class="dot" onclick="thisSlide(5)"></span>
+        <span class="dot" onclick="thisSlide(6)"></span>
+    </div>
+
+    <!-- QUOTE -->
+    <p style="text-align:center; margin-top:40px; font-style: italic; opacity:0.8;">
+        "fuck yourself if you think you can’t do it."
+    </p>
+</section>
+
+<script>
+let Index = 1;
+showSlides(Index);
+
+function addSlides(n) {
+    showSlides(Index += n);
+}
+
+function thisSlide(n) {
+    showSlides(Index = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("Slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) { Index = 1 }
+    if (n < 1) { Index = slides.length }
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[Index-1].style.display = "block";
+    dots[Index-1].className += " active";
+}
+</script>
+
+</body>
+</html>
